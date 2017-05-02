@@ -17,8 +17,10 @@ Capybara.register_driver :chrome do |app|
 end
 
 Capybara.default_driver = :chrome
-Capybara.app_host = 'http://www.hi5.com/'
-Capybara.default_max_wait_time = 5
+Capybara.app_host = 'https://vk.com/'
+# Capybara.app_host = 'http://www.hi5.com/'
+
+Capybara.default_max_wait_time = 10
 
 RSpec.configure do |config|
   config.before(:each) do
