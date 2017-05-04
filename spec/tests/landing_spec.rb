@@ -2,17 +2,30 @@ require 'spec_helper'
 
 describe 'VK web site' do
 
-
   context 'with page object' do
     before(:each) do
       visit('/')
       @top = TopNavigationBar.new
     end
     it 'shows the feed page' do
-      @top.do_login('login@gmail.com', 'pass')
+      @top.do_login('89@gmail.com', '89')
       expect(page).to have_selector(:css, ".wide_column #main_feed")
     end
   end
+
+  context 'Search element in the feed'  do
+    before(:each) do
+      visit('/')
+      @top = TopNavigationBar.new
+      @top.do_login('89@gmail.com', '89')
+    end
+
+    it 'scroll down in' do
+      visit('/feed')
+      page.execute_script "window.scrollBy(0,10000)"
+    end
+  end
+
 
 
 #   describe 'on Footer Navigation Bar ' do
