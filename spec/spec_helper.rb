@@ -27,3 +27,6 @@ RSpec.configure do |config|
     config.include Capybara::DSL
   end
 end
+
+LOGIN = '89@gmail.com'
+PASSWORD = '89'
