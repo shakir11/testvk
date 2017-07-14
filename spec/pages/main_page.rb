@@ -1,4 +1,4 @@
-class TopNavigationBar
+class SignInPage
   include Capybara::DSL
 
   def do_login(username, password)

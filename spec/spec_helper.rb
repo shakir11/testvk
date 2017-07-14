@@ -18,7 +18,6 @@ end
 
 Capybara.default_driver = :chrome
 Capybara.app_host = 'https://vk.com/'
-# Capybara.app_host = 'http://www.hi5.com/'
 
 Capybara.default_max_wait_time = 10
 
@@ -27,3 +26,6 @@ RSpec.configure do |config|
     config.include Capybara::DSL
   end
 end
+
+LOGIN = '-----@gmail.com'
+PASSWORD = '-----'
