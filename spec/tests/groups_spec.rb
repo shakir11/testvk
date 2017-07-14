@@ -1,29 +1,22 @@
 require 'spec_helper'
 
+GROUP_URL = '/club149408465'
+MESSAGE_BODY = 'HELLO!'
+
+
 describe 'find post in groups page' do
+  let(:group_page) { GroupPage.new }
 
-  context 'Search element in the feed'  do
-    before(:each) do
-      visit('/')
-      @top = AuthorisationPage.new
-      @top.do_login( LOGIN, PASSWORD )
-    end
+  context 'Post message in group' do
+    it 'Signed in Successfully' do
+      visit '/club149408465'
+      group_page.do_quicklogin(LOGIN, PASSWORD)
+      expect(page).to have_text ''
 
-    it 'scroll down in' do
-    	find('.left_label', text: 'Группы').click
-    	within '.page_block #group_u_search_input_wrap' do
-    		# GROUP_NAME = 'Суровый технарь'
-    		# BUTTON_SEARCH_GROUP = '._ui_search_button_search'
-    		# fill_in('groups_list_search', :with => GROUP_NAME)
-    		visit('/brutalengineer')
-
-    		
-    	end
-
-    	# find('.group_row_title').click
-    	expect(page).to have_content('Единственный паблик без политоты.')
-      	
-      	page.execute_script "window.scrollBy(0,10000)"
+      group_page.create_post(MESSAGE_BODY)
+      expect(page).to have_content('')
     end
   end
+  # find('.group_row_title').click
+	# page.execute_script "window.scrollBy(0,10000)"
 end

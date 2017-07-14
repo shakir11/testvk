@@ -5,7 +5,7 @@ describe 'VK web site' do
   context 'with page object' do
     before(:each) do
       visit('/')
-      @top = AuthorisationPage.new
+      @top = SignInPage.new
     end
     it 'shows the feed page' do
       @top.do_login( LOGIN, PASSWORD )
